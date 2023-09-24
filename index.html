@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .top-element {
+      width: 20%;
+      margin: 2.5%;
+      padding-left: 10px;
+      border-style: solid;
+      border-color: #2596be;
+      min-height: 400px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .form {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      padding-left: 14%;
+      display: inline-block;
+    }
+
+    .switch-label {
+      margin-right: 10px;
+    }
+
+    .selected,
+.unselected {
+  flex: 1;
+  background-color: #2596be;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  padding: 10px 20px; /* Adjusted padding */
+  height: auto; /* Adjusted height to auto */
+}
+
+.unselected {
+  background-color: white;
+  color: #2596be;
+  border: 2px solid #2596be;
+}
+
+    .input,
+    .single-input {
+        width: 700px;
+        border-color: #2596be;
+        border-style: solid;
+        height: 60px;
+        ;
+    }
+
+    .notification {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+  text-align: center;
+}
+
+.notification.show {
+  transform: translateY(0%);
+}
+
+.notification p {
+  margin-bottom: 10px;
+}
+
+
+
+  </style>
+    <script>
+function showNotification() {
+  const notification = document.getElementById('notification');
+  notification.style.display = 'block';
+
+  // Adding the 'show' class triggers the animation
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 10);
+}
+
+function closeNotification() {
+  const notification = document.getElementById('notification');
+  notification.classList.remove('show');
+
+  // Removing the 'show' class after the animation completes
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 300);
+}
+    </script>
+
+</head>
+<body>
+
+  <div class="section">
+    <div class="top-element">
+      <p>Test</p>
+    </div>
+
+    <div style="padding-left: 0px;" class="top-element">
+      <img src="cart.jpg" alt="Cart Image">
+    </div>
+
+    <div class="top-element">
+      <p>Test</p>
+    </div>
+  </div>
+
+  <div id="notification" class="notification">
+    <h2>Thank you for the feedback!</h2>
+    <p>Would you like to be kept informed on the progress of this product?</p>
+    <button class="selected" onclick="closeNotification()">Yes</button>
+    <button class="unselected" onclick="closeNotification()">No</button>
+  </div>
+
+  <div class="form">
+    <label class="switch-label"><b>Could this solution solve a problem in your organisation?</b></label><br>
+    <button class="action-button unselected">Yes</button>
+    <button class="action-button unselected">No</button><br>
+    <input placeholder="Please tell us more.." class="input" id="q1">
+
+    <br><br>
+
+    <label class="switch-label"><b>Which additions / changes would you propose to this prototype?</b></label><br>
+    <input class="input" id="q1">
+
+    <br><br>
+
+
+    <label class="switch-label"><b>Which accessories would you need to add?</b></label><br>
+    <input class="input" id="q1">
+<br>
+    <button onclick="showNotification()" class="selected">Submit Feedback</button>
+  </div>
+
+</body>
+</html>
